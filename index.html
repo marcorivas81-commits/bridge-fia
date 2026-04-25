@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Franquicia IA — Sistema Digital 2026</title>
+
+<!-- ================================================
+     META PIXEL — ID: 2723292408034108
+     ================================================ -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2723292408034108');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent', {
+  content_name: 'Bridge FIA',
+  content_category: 'Franquicia IA',
+  currency: 'USD',
+  value: 97
+});
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2723292408034108&ev=PageView&noscript=1"/>
+</noscript>
+
+<!-- ================================================
+     UTM PASSTHROUGH + REDIRECCIÓN AUTOMÁTICA
+     3 segundos para que ViewContent dispare antes de salir
+     ================================================ -->
+<script>
+(function(){
+  var BASE_URL = 'https://go.hotmart.com/B105293250P?ap=39fb';
+  var DELAY    = 3000;
+
+  var params = new URLSearchParams(window.location.search);
+  var utms   = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+
+  window.addEventListener('load', function(){
+
+    /* Construir URL destino con UTMs del anuncio preservados */
+    var finalURL;
+    try {
+      var dest = new URL(BASE_URL);
+      utms.forEach(function(u){
+        if(params.get(u)) dest.searchParams.set(u, params.get(u));
+      });
+      finalURL = dest.toString();
+    } catch(e){
+      finalURL = BASE_URL;
+    }
+
+    /* Link fallback manual */
+    var skipLink = document.getElementById('skip-link');
+    if(skipLink) skipLink.href = finalURL;
+
+    /* Barra de progreso animada + redirect al terminar */
+    var bar   = document.getElementById('prog-bar');
+    var start = Date.now();
+
+    var rafLoop = function(){
+      var pct = Math.min((Date.now() - start) / DELAY * 100, 100);
+      if(bar) bar.style.width = pct + '%';
+      if(pct < 100){
+        requestAnimationFrame(rafLoop);
+      } else {
+        window.location.href = finalURL;
+      }
+    };
+    requestAnimationFrame(rafLoop);
+  });
+})();
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg:      #060511;
+    --purple:  #6d28d9;
+    --purple2: #8b5cf6;
+    --white:   #ffffff;
+    --gray:    rgba(255,255,255,0.52);
+    --gray2:   rgba(255,255,255,0.22);
+    --green:   #22c55e;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px 60px;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; top: -30%; left: 50%;
+    transform: translateX(-50%);
+    width: 900px; height: 900px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(109,40,217,0.18) 0%, transparent 65%);
+    pointer-events: none; z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed; bottom: -20%; right: -10%;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 65%);
+    pointer-events: none; z-index: 0;
+  }
+
+  .wrapper {
+    position: relative; z-index: 1;
+    max-width: 620px; width: 100%;
+    text-align: center;
+    animation: fadeUp 0.65s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid rgba(109,40,217,0.5); border-radius: 100px;
+    padding: 6px 16px; font-size: 11px; font-weight: 500;
+    color: var(--purple2); letter-spacing: .1em; text-transform: uppercase;
+    margin-bottom: 32px; background: rgba(109,40,217,0.08);
+  }
+  .badge-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green); box-shadow: 0 0 8px var(--green);
+    animation: pulse 2s ease infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50%     { opacity:0.6; transform:scale(0.85); }
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: clamp(30px, 6vw, 52px);
+    line-height: 1.06; letter-spacing: -0.02em; margin-bottom: 22px;
+  }
+  h1 .accent {
+    color: var(--purple2); position: relative; display: inline-block;
+  }
+  h1 .accent::after {
+    content: ''; position: absolute; left: 0; bottom: -2px;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--purple), var(--purple2));
+    border-radius: 2px;
+  }
+
+  .sub {
+    font-size: clamp(14px, 2.5vw, 16px); color: var(--gray);
+    line-height: 1.65; max-width: 500px; margin: 0 auto 36px;
+  }
+
+  .divider {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 36px;
+  }
+  .divider::before, .divider::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(109,40,217,0.4), transparent);
+  }
+  .divider span {
+    font-size: 11px; color: var(--gray2);
+    text-transform: uppercase; letter-spacing: .12em; white-space: nowrap;
+  }
+
+  .bullets { display: flex; flex-direction: column; gap: 10px; margin-bottom: 44px; text-align: left; }
+  .bullet {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px; padding: 13px 16px;
+  }
+  .bullet-icon { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
+  .bullet-text { font-size: 13px; color: rgba(255,255,255,0.76); line-height: 1.55; }
+  .bullet-text strong { color: var(--white); font-weight: 500; }
+
+  /* Redirect box */
+  .redirect-box {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(109,40,217,0.3);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+  }
+  .redirect-label {
+    font-size: 11px; color: var(--gray2);
+    text-transform: uppercase; letter-spacing: .12em;
+    margin-bottom: 14px;
+  }
+  .prog-track {
+    width: 100%; height: 5px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 10px; overflow: hidden; margin-bottom: 18px;
+  }
+  .prog-fill {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--purple), var(--purple2));
+    border-radius: 10px;
+  }
+  .redirect-msg {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(14px, 2vw, 16px); font-weight: 700;
+    color: var(--white);
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .spinner {
+    width: 15px; height: 15px;
+    border: 2px solid rgba(139,92,246,0.25);
+    border-top-color: var(--purple2);
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite; flex-shrink: 0;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .skip {
+    display: block; font-size: 12px; color: var(--gray2);
+    text-decoration: none; transition: color .2s;
+  }
+  .skip:hover { color: var(--purple2); }
+
+  .foot {
+    margin-top: 52px; font-size: 11px;
+    color: rgba(255,255,255,0.18); line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="badge">
+    <div class="badge-dot"></div>
+    Sistema activo · 2026
+  </div>
+
+  <h1>
+    La IA ya armó<br>el negocio.<br>
+    <span class="accent">Solo falta activarlo.</span>
+  </h1>
+
+  <p class="sub">
+    En los próximos segundos vas a ver el sistema exacto que está usando
+    gente común para generar ingresos digitales en 2026 —
+    sin crear productos, sin experiencia previa.
+  </p>
+
+  <div class="divider"><span>Lo que vas a descubrir</span></div>
+
+  <div class="bullets">
+    <div class="bullet">
+      <div class="bullet-icon">⚙️</div>
+      <div class="bullet-text">
+        <strong>Sistema ya construido:</strong> la estructura, el producto
+        y el proceso están listos para conectar.
+      </div>
+    </div>
+    <div class="bullet">
+      <div class="bullet-icon">🤖</div>
+      <div class="bullet-text">
+        <strong>IA aplicada:</strong> no es teoría.
+        Es tecnología funcionando que puedes activar hoy.
+      </div>
+    </div>
+    <div class="bullet">
+      <div class="bullet-icon">🕐</div>
+      <div class="bullet-text">
+        <strong>45 minutos al día:</strong> diseñado para personas reales
+        con tiempo limitado y sin experiencia previa.
+      </div>
+    </div>
+  </div>
+
+  <div class="redirect-box">
+    <div class="redirect-label">Cargando el sistema</div>
+    <div class="prog-track">
+      <div class="prog-fill" id="prog-bar"></div>
+    </div>
+    <div class="redirect-msg">
+      <div class="spinner"></div>
+      Preparando tu acceso al video…
+    </div>
+  </div>
+
+  <a class="skip" id="skip-link" href="https://go.hotmart.com/B105293250P?ap=39fb">
+    Si no eres redirigido automáticamente, haz clic aquí →
+  </a>
+
+  <div class="foot">
+    Este sitio no es parte de Facebook™ ni de Meta Platforms Inc.<br>
+    Facebook™ es una marca registrada de Meta Platforms Inc.
+  </div>
+
+</div>
+</body>
+</html>
