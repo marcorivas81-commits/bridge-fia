@@ -33,44 +33,19 @@ fbq('track', 'ViewContent', {
 
 <!-- ================================================
      UTM PASSTHROUGH + REDIRECCIÓN AUTOMÁTICA
-     3 segundos para que ViewContent dispare antes de salir
+     Va directo a franquiciaia.co para preservar UTMs
      ================================================ -->
 <script>
-(function(){
-  var BASE_URL = 'https://go.hotmart.com/B105293250P?ap=39fb';
-
-  /* Leer UTMs de la URL de la bridge page INMEDIATAMENTE (sin esperar load) */
-  var params = new URLSearchParams(window.location.search);
-  var utms   = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term',
-                'utm_id','xcod'];
-
-  /* Construir URL destino con UTMs preservados */
-  var finalURL;
-  try {
-    var dest = new URL(BASE_URL);
-    utms.forEach(function(u){
-      var v = params.get(u);
-      if(v) dest.searchParams.set(u, v);
-    });
-    finalURL = dest.toString();
-  } catch(e){
-    finalURL = BASE_URL;
+  // Captura los UTMs de la URL actual y los pasa al destino
+  var params = window.location.search;
+  var destination = "https://franquiciaia.co/aff?ref=B105293250P";
+  if (params) {
+    destination = destination + "&" + params.substring(1);
   }
-
-  /* Actualizar link de fallback cuando el DOM esté listo */
-  document.addEventListener('DOMContentLoaded', function(){
-    var skipLink = document.getElementById('skip-link');
-    if(skipLink) skipLink.href = finalURL;
-    var bar = document.getElementById('prog-bar');
-    if(bar) bar.style.width = '100%';
-  });
-
-  /* Redirigir tan pronto como el píxel haya disparado (~300ms) */
+  // 300ms para que el píxel confirme ViewContent antes de redirigir
   setTimeout(function(){
-    window.location.replace(finalURL);
+    window.location.replace(destination);
   }, 300);
-
-})();
 </script>
 
 <!-- Fonts -->
