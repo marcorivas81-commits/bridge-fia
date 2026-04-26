@@ -38,44 +38,38 @@ fbq('track', 'ViewContent', {
 <script>
 (function(){
   var BASE_URL = 'https://go.hotmart.com/B105293250P?ap=39fb';
-  var DELAY    = 0;
 
+  /* Leer UTMs de la URL de la bridge page INMEDIATAMENTE (sin esperar load) */
   var params = new URLSearchParams(window.location.search);
-  var utms   = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+  var utms   = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term',
+                'utm_id','xcod'];
 
-  window.addEventListener('load', function(){
+  /* Construir URL destino con UTMs preservados */
+  var finalURL;
+  try {
+    var dest = new URL(BASE_URL);
+    utms.forEach(function(u){
+      var v = params.get(u);
+      if(v) dest.searchParams.set(u, v);
+    });
+    finalURL = dest.toString();
+  } catch(e){
+    finalURL = BASE_URL;
+  }
 
-    /* Construir URL destino con UTMs del anuncio preservados */
-    var finalURL;
-    try {
-      var dest = new URL(BASE_URL);
-      utms.forEach(function(u){
-        if(params.get(u)) dest.searchParams.set(u, params.get(u));
-      });
-      finalURL = dest.toString();
-    } catch(e){
-      finalURL = BASE_URL;
-    }
-
-    /* Link fallback manual */
+  /* Actualizar link de fallback cuando el DOM esté listo */
+  document.addEventListener('DOMContentLoaded', function(){
     var skipLink = document.getElementById('skip-link');
     if(skipLink) skipLink.href = finalURL;
-
-    /* Barra de progreso animada + redirect al terminar */
-    var bar   = document.getElementById('prog-bar');
-    var start = Date.now();
-
-    var rafLoop = function(){
-      var pct = Math.min((Date.now() - start) / DELAY * 100, 100);
-      if(bar) bar.style.width = pct + '%';
-      if(pct < 100){
-        requestAnimationFrame(rafLoop);
-      } else {
-        window.location.href = finalURL;
-      }
-    };
-    requestAnimationFrame(rafLoop);
+    var bar = document.getElementById('prog-bar');
+    if(bar) bar.style.width = '100%';
   });
+
+  /* Redirigir tan pronto como el píxel haya disparado (~300ms) */
+  setTimeout(function(){
+    window.location.replace(finalURL);
+  }, 300);
+
 })();
 </script>
 
