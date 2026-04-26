@@ -32,17 +32,27 @@ fbq('track', 'ViewContent', {
 </noscript>
 
 <!-- ================================================
+     UTMIFY — Script de captura de UTMs
+     ================================================ -->
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
+<!-- ================================================
      UTM PASSTHROUGH + REDIRECCIÓN AUTOMÁTICA
      Va directo a franquiciaia.co para preservar UTMs
      ================================================ -->
 <script>
   // Captura los UTMs de la URL actual y los pasa al destino
   var params = window.location.search;
-  var destination = "https://franquiciaia.co/aff?ref=B105293250P";
+  var destination = "https://go.hotmart.com/B105293250P?ap=39fb";
   if (params) {
     destination = destination + "&" + params.substring(1);
   }
-  // 300ms para que el píxel confirme ViewContent antes de redirigir
+  // 300ms para que el píxel de Meta y el script de Utmify capturen antes de redirigir
   setTimeout(function(){
     window.location.replace(destination);
   }, 300);
