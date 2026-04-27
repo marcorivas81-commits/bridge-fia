@@ -41,19 +41,37 @@ fbq('track', 'ViewContent', {
 
 <!-- ================================================
      UTM PASSTHROUGH + REDIRECCIÓN AUTOMÁTICA
-     Va directo a franquiciaia.co para preservar UTMs
+     Redirige después de que ViewContent confirma, con
+     fallback de 1500ms si el píxel tarda demasiado
      ================================================ -->
 <script>
-  // Captura los UTMs de la URL actual y los pasa al destino
+  // Construir URL destino con UTMs preservados
   var params = window.location.search;
   var destination = "https://go.hotmart.com/B105293250P?ap=39fb";
   if (params) {
     destination = destination + "&" + params.substring(1);
   }
-  // 300ms — Utmify carga sincrónicamente, píxel confirma ViewContent
-  setTimeout(function(){
-    window.location.replace(destination);
-  }, 300);
+
+  // Bandera para evitar doble redirect
+  var redirected = false;
+  function doRedirect() {
+    if (!redirected) {
+      redirected = true;
+      window.location.replace(destination);
+    }
+  }
+
+  // Disparar ViewContent con callback — redirige cuando el píxel confirma
+  window.addEventListener('load', function() {
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'ViewContent', {}, {eventID: 'vc_bridge_' + Date.now()});
+    }
+    // Fallback: si el píxel no confirmó en 1500ms, redirigir de todas formas
+    setTimeout(doRedirect, 1500);
+  });
+
+  // Segundo fallback: si load nunca dispara (conexión muy lenta)
+  setTimeout(doRedirect, 3000);
 </script>
 
 <!-- Fonts -->
