@@ -37,8 +37,6 @@ fbq('track', 'ViewContent', {
 <script
   src="https://cdn.utmify.com.br/scripts/utms/latest.js"
   data-utmify-prevent-subids
-  async
-  defer
 ></script>
 
 <!-- ================================================
@@ -52,7 +50,7 @@ fbq('track', 'ViewContent', {
   if (params) {
     destination = destination + "&" + params.substring(1);
   }
-  // 300ms para que el píxel de Meta y el script de Utmify capturen antes de redirigir
+  // 300ms — Utmify carga sincrónicamente, píxel confirma ViewContent
   setTimeout(function(){
     window.location.replace(destination);
   }, 300);
