@@ -19,6 +19,12 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '2723292408034108');
 fbq('track', 'PageView');
+fbq('track', 'ViewContent', {
+  content_name: 'Bridge FIA',
+  content_category: 'Franquicia IA',
+  currency: 'USD',
+  value: 97
+});
 </script>
 <noscript>
   <img height="1" width="1" style="display:none"
@@ -57,10 +63,7 @@ fbq('track', 'PageView');
 
   // Disparar ViewContent con callback — redirige cuando el píxel confirma
   window.addEventListener('load', function() {
-    if (typeof fbq !== 'undefined') {
-      fbq('track', 'ViewContent', {}, {eventID: 'vc_bridge_' + Date.now()});
-    }
-    // Fallback: si el píxel no confirmó en 1500ms, redirigir de todas formas
+    // ViewContent ya disparó en el <head> — solo ejecutar redirect
     setTimeout(doRedirect, 1500);
   });
 
@@ -303,5 +306,4 @@ fbq('track', 'PageView');
 
 </div>
 </body>
-</html>
 </html>
